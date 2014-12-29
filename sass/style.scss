@@ -1,0 +1,162 @@
+@import "compass/reset";
+
+// globally relevant
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: 100;
+    overflow: hidden;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    text-decoration: underline;
+}
+.hidden {
+    display: none;
+}
+
+$headerSize: 60px;
+// header
+.header {
+    background: green;
+    color: white;
+    height: $headerSize;
+    line-height: $headerSize / 4;
+    clear: both;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    overflow: visible;
+}
+.titles {
+    float: left;
+    width: 50%;
+    text-align: left;
+}
+h1 {
+    margin: $headerSize / 4 10px 0;
+}
+h2 {
+    margin: 0 10px $headerSize / 4;
+    font-size: 0.8em;
+    a {
+        color: white;
+    }
+}
+.selector {
+    float: right;
+    width: 50%;
+    box-sizing: border-box;
+    padding-right: 20px;
+    text-align: right;
+    height: $headerSize;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    &.open {
+        height: auto;
+        .option {
+            display: block;
+            &:hover {
+                background: rgba(0,0,0,0.75);
+            }
+        }
+    }
+    .option {
+        cursor: pointer;
+        flex-grow: 1;
+        width: 200px;
+        padding: 0 20px;
+        background: rgba(0,0,0,0.5);
+        display: none;
+        order: 1;
+        height: $headerSize / 2;
+        line-height: $headerSize / 2;
+        &.selected {
+            flex-grow: 0;
+            display: block;
+            height: $headerSize;
+            line-height: $headerSize;
+            order: 0;
+            &:after {
+                display: inline-block;
+                content: " ";
+                border-top: 8px solid rgba(255,255,255,1);
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                width: 0;
+                height: 0;
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+.content {
+    position: absolute;
+    z-index: 0;
+    top: $headerSize;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    svg {
+        text {
+            fill: rgba(0,0,0,0.5);
+            cursor: default;
+        }
+        .axis {
+            .day text {
+                text-anchor: middle;
+            }
+            .hour text {
+                text-anchor: left;
+            }
+        }
+        .legend rect {
+            fill: url(#legendGradient);
+        }
+        .stop1 {
+            stop-color: green;
+        }
+        .stop2 {
+            stop-color: white;
+        }
+    }
+}
+
+// loading indicator
+.loading {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    right: 0;
+}
+
+// attribution
+.attr {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 0.5em;
+}
+
+// tooltip
+.tooltip {
+    position: absolute;
+    padding: 10px;
+    background: rgba(255,255,255,0.9);
+    color: black;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.25);
+    cursor: default;
+    pointer-events: none;
+}
