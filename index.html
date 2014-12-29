@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Jakarta Traffic Accidents 2003-2012</title>
+        <link rel="stylesheet" href="stylesheets/style.css" />
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="http://d3js.org/topojson.v1.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="titles">
+                <h1>Jakarta Traffic Accidents 2003-2012</h1>
+                <h2>visualization by <a href="http://zevyoura.com/">Zev Youra</a></h2>
+            </div>
+            <div class="selector">
+                Loading...
+            </div>
+        </div>
+        <div class="loading">
+            <div class="label">loading...</div>
+        </div>
+        <div class="content">
+        <svg>
+            <defs>
+                <linearGradient id="legendGradient" x1="0" x2="0" y1="1" y2="0">
+                    <stop class="stop1" offset="0%" />
+                    <stop class="stop2" offset="100%" />
+                </linearGradient>
+            </defs>    
+        </svg>
+        </div>
+        <div class="tooltip hidden"></div>
+        <div class="attr">
+            Data from <a href="www.jasamarga.com/informasi-lalulintas.html">Info Lalu lintas via Jasa Marga. 
+            <a href="http://github.com/rickystiawan/lalulintasindonesia">Code</a> is BSD licensed.</a>
+        </div>
+    </body>
+</html>
